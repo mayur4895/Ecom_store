@@ -8,8 +8,10 @@ import Image from 'next/image'
 interface BillboardProps{
     data:BillboardType
 }
+ 
 
-const Billboard = ({data}:BillboardProps) => {
+const Billboard = ({data}:BillboardProps) => { 
+
   return (
     <div className=' sm:p-6 lg:p-8 p-4 rounded-xl'>
       <AspectRatio ratio={16 / 6} className="bg-muted">
@@ -21,7 +23,7 @@ const Billboard = ({data}:BillboardProps) => {
         className="rounded-xl object-cover  z-10"
       /> 
       
-    <h3 className='z-50  font-bold text-5xl text-zinc-900/75'>{data.label}</h3>
+    <h3 className='z-50  font-bold lg:text-5xl sm:text-3xl  text-zinc-900/75'>{data.label}</h3>
        </div>
     </AspectRatio>
      

@@ -2,9 +2,9 @@
 import Link from 'next/link'
 import React from 'react'
 import Container from './ui/container'
-import MainNav from './MainNav'
-import { getCategories } from '@/actions/getCategories'
+import MainNav from './MainNav' 
 import ActionButton from './ui/action-button'
+import getCategories from '@/actions/getCategories'
 
 const Navbar = async() => {
 
