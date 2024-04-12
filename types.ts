@@ -15,6 +15,7 @@ export interface Billboard {
 export interface Product{
     id:string,
     name:string,
+    desc:string,
     price:string,
     size:Size[]
     color:Color[]
@@ -32,7 +33,7 @@ export interface Image{
 
 export interface Size{
     id:string,
-    name:string
+    name:string,
     value:string
 }
 

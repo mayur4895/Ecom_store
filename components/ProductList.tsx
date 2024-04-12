@@ -17,7 +17,7 @@ const ProductList =  ({items,title}:ProductListProps) => {
     <Container>
     <div className='w-full py-5 px-5   '>
            <h2 className='text-black font-bold   text-xl'>{title}</h2> 
-           <div className='flex flex-wrap w-full mt-10 gap-x-4'>
+           <div className='flex flex-wrap w-full mt-10 gap-4'>
                   {
                     items.map((product)=>{
                     return( <ProductCard 

@@ -11,6 +11,9 @@ export const revalidate = 0;
 
 const Homepage = async() => {
  const products = await getProducts({isFeatured: true})
+ if(products.length < 0) {
+  return null;
+ }
   
   const data = await getBillboard("661232ffea323317e4004ec9");
   return (

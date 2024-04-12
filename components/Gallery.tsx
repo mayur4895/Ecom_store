@@ -17,11 +17,11 @@ interface GalleryProps {
 }
 export function Gallery({ productItem }: GalleryProps) {
   return (
-    <Tabs defaultValue="account" className="w-full  flex flex-col-reverse">
-      <TabsList className="w-full flex flex-wrap mt-4  justify-start items-start">
+    <Tabs defaultValue={productItem.images[0].id} className="w-full  flex flex-col-reverse">
+      <TabsList className="w-full flex flex-wrap mt-4 gap-3 justify-start items-start">
         {productItem.images.map((image) => {
           return (
-            <TabsTrigger value={image.id} className="w-[100px]" >
+            <TabsTrigger   value={image.id} className="w-[100px]  "  key={image.id}>
                <div className="w-[80px]">
                <AspectRatio ratio={1/ 1}>
                 <Image
@@ -39,7 +39,7 @@ export function Gallery({ productItem }: GalleryProps) {
 
       {productItem.images.map((image) => {
         return (
-          <TabsContent value={image.id} className="w-[300px]" >
+          <TabsContent value={image.id} className="w-[300px]"   key={image.id}>
              
             <div className="w-[300px] shadow-sm border rounded-lg">
                <AspectRatio ratio={1/ 1}>

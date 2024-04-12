@@ -25,12 +25,12 @@ const MainNav = ({data}:MainNavProps) => {
  
 
   return (
-    <div className='mx-6 gap-x-4 lg:space-x-6 items-center flex'>
+    <div className='mx-6 gap-x-4 lg:space-x-6 items-center w-full flex'>
        {
          
          routes.map((route)=>{
              return(
-                 <Link href={route.href} key={route.href} className={cn(" font-medium",route.active?"text-zinc-900":"text-zinc-600")}>
+                 <Link href={route.href} key={route.href} className={cn("  whitespace-nowrap font-medium",route.active?"text-zinc-900":"text-zinc-600")}>
                          {route.name}
                 </Link>
              )
