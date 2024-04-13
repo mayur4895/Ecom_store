@@ -12,6 +12,11 @@ interface BillboardProps{
 
 const Billboard = ({data}:BillboardProps) => { 
 
+
+  if(!data){
+    return null;
+  }
+
   return (
     <div className=' sm:p-6 lg:p-8 p-4 rounded-xl'>
       <AspectRatio ratio={16 / 6} className="bg-muted">
