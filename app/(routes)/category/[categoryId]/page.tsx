@@ -23,8 +23,7 @@ const CategoryPage = async ({ params, searchParams }: CategoryPageProps) => {
     categoryId: params.categoryId,
     sizeId: searchParams.sizeId,
     colorId: searchParams.colorId,
-  }); 
-console.log(products.length);
+  });  
 
 
   const colors = await getColors();
@@ -37,12 +36,14 @@ console.log(products.length);
         <Billboard data={category.billboard} />
 
         <div className=" w-full h-full px-8 mt-10 lg:grid lg:grid-cols-2 ">
-          <div>
+          <div className=" hidden lg:flex flex-col gap-4" >
             <Filter valueKey={"sizeId"} name={"Sizes"} data={sizes} />
 
             <Filter valueKey={"colorId"} name={"Colors"} data={colors} />
           </div>
-          <div className="flex flex-wrap gap-3">
+          <div>           
+            <span className="mb-4 font-semibold">Show Results: {products.length}</span>
+            <div className="flex flex-wrap mt-3 gap-3"> 
             {
                products.map((item)=>{
                 return(
@@ -54,6 +55,8 @@ console.log(products.length);
                })
             }
           </div>
+          </div>
+
         </div>
       </Container>
     </div>
