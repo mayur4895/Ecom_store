@@ -27,7 +27,7 @@ const SingleProduct = async({params}:SingleProductProps) => {
   return (
     <Container> 
 <div className='lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-10    my-10  mx-8'>
-<div className='h-full'>
+<div  >
  <Gallery productItem={product}/>
   </div>
   <div>

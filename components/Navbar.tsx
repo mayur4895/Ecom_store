@@ -13,7 +13,7 @@ const Navbar = async() => {
   
   return (
     <Container>
-      <div className='w-full py-5 px-5 border-b flex gap-x-20 '>
+      <div className='w-full py-5 px-5 border-b flex gap-x-10 '>
         
       <Link className=' text-black font-bold cursor-pointer text-xl' href="/">MSTORE</Link>
       <MainNav data={data}/>

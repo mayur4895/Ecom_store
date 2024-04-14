@@ -1,6 +1,6 @@
 'use client'
 import { Product as ProductDataType } from '@/types';
-import React from 'react'
+import React, { EventHandler, MouseEventHandler } from 'react'
 import {
     Card,
     CardContent,
@@ -18,6 +18,8 @@ import { BsCart } from 'react-icons/bs';
 import { BiExpandAlt } from 'react-icons/bi';
 import { formatter } from '@/lib/utils';
 import { useRouter } from 'next/navigation';
+import UseModal from '@/hooks/use-modal-store';
+import { Button } from './button';
 
 
 interface ProductCardProps{
@@ -29,10 +31,19 @@ const ProductCard = ({
 }:ProductCardProps) => {
 
 const router = useRouter();
+const {onOpen ,Isopen} = UseModal();
+ 
 
 const handlClick= ()=>{
   
     router.push(`/product/${product.id}`)
+}
+
+
+const OnPreview:MouseEventHandler<HTMLButtonElement> =(event)=>{
+  
+  event.stopPropagation();
+ onOpen(product)
 }
 
   return (
@@ -44,8 +55,13 @@ const handlClick= ()=>{
     
    <div className='h-3-black opacity-0 absolute bottom-4 right-0 w-full  transition-opacity   group-hover:opacity-100   '>
  <div className='w-full  flex justify-center items-center gap-4'>
- <Expand  className='bg-white  text-gray-800 p-2 rounded-full cursor-pointer hover:scale-105'size={34} />
- <ShoppingCart className='bg-white  transition-all text-gray-800 p-2 rounded-full cursor-pointer hover:scale-105' size={34}/>
+  <Button onClick={(e)=>{OnPreview(e)}} className='bg-white  text-gray-800 p-2 rounded-full cursor-pointer hover:scale-105 hover:bg-white'>   
+ <Expand      size={18} />
+ </Button>
+ 
+ <Button onClick={()=>{}} className='bg-white  text-gray-800 p-2 rounded-full cursor-pointer hover:scale-105 hover:bg-white'>   
+ <ShoppingCart      size={18} />
+ </Button>
  </div>
 </div>
   </div> 

@@ -19,7 +19,7 @@ const Billboard = ({data}:BillboardProps) => {
 
   return (
     <div className=' sm:p-6 lg:p-8 p-4 rounded-xl'>
-      <AspectRatio ratio={16 / 6} className="bg-muted">
+      <AspectRatio ratio={16 / 7}  className="bg-muted">
        <div className=' flex items-center flex-col justify-center h-full'>
        <Image
         src={data.imageUrl}
