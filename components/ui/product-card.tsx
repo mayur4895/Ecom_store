@@ -20,6 +20,7 @@ import { formatter } from '@/lib/utils';
 import { useRouter } from 'next/navigation';
 import UseModal from '@/hooks/use-modal-store';
 import { Button } from './button';
+import useCartStore from '@/hooks/use-cart-store';
 
 
 interface ProductCardProps{
@@ -31,7 +32,8 @@ const ProductCard = ({
 }:ProductCardProps) => {
 
 const router = useRouter();
-const {onOpen ,Isopen} = UseModal();
+const {onOpen} = UseModal();
+const {addItem} = useCartStore();
  
 
 const handlClick= ()=>{
@@ -44,6 +46,11 @@ const OnPreview:MouseEventHandler<HTMLButtonElement> =(event)=>{
   
   event.stopPropagation();
  onOpen(product)
+}
+
+const OnAddToCart:MouseEventHandler<HTMLButtonElement> =(event)=>{
+  event.stopPropagation();
+  addItem(product)
 }
 
   return (
@@ -59,7 +66,7 @@ const OnPreview:MouseEventHandler<HTMLButtonElement> =(event)=>{
  <Expand      size={18} />
  </Button>
  
- <Button onClick={()=>{}} className='bg-white  text-gray-800 p-2 rounded-full cursor-pointer hover:scale-105 hover:bg-white'>   
+ <Button onClick={(e)=>{OnAddToCart(e)}} className='bg-white  text-gray-800 p-2 rounded-full cursor-pointer hover:scale-105 hover:bg-white'>   
  <ShoppingCart      size={18} />
  </Button>
  </div>

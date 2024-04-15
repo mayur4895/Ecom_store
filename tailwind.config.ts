@@ -18,6 +18,9 @@ const config = {
       },
     },
     extend: {
+      boxShadow: {
+        'custom-top': '0 -4px 6px -1px rgba(0, 0, 0, 0.1)',
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -73,6 +76,7 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
     },
+     
   },
   plugins: [require("tailwindcss-animate"),
   require('tailwind-scrollbar-hide')],

@@ -1,16 +1,20 @@
+'use client'
 import React from 'react'
 import { Button } from './button'
-import { ShoppingBagIcon } from 'lucide-react'
-import { LiaShoppingBagSolid } from 'react-icons/lia'
+import { ShoppingBagIcon } from 'lucide-react' 
+
+import useCartStore from '@/hooks/use-cart-store'
+import { useRouter } from 'next/navigation'
 
 const ActionButton = () => {
+  const router = useRouter();
+  const cart = useCartStore();
   return (
-    <Button   size={"sm"} className='ml-auto   rounded-full'>
+    <Button   onClick={()=>{router.push("/cart")}} size={"sm"} className='ml-auto   rounded-full'>
         <div className='flex items-end gap-x-2'>
         <ShoppingBagIcon  size={22}/>
-        <span className='text-sm'>0</span>
-        </div>
-
+        <span className='text-sm'>{cart.Items.length}</span>
+        </div>  
     </Button>
   )
 }
