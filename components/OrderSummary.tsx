@@ -1,16 +1,44 @@
+'use client'
 import useCartStore from '@/hooks/use-cart-store'
 import { formatter } from '@/lib/utils'
-import React from 'react'
+import React, { useActionState, useEffect } from 'react'
 import { Button } from './ui/button'
+import axios from 'axios'
+import { useSearchParams } from 'next/navigation'
+import toast from 'react-hot-toast'
 
  
 const OrderSummary = () => {
 const Items = useCartStore((state) => state.Items)
-
+const removeAll = useCartStore((state)=>state.removeAll)
+const searchParams = useSearchParams();
 
 const TotalPrice = Items.reduce((total,item)=>{
    return total + Number(item.price)
 },0)
+
+ 
+const onCheckOut = async()=>{
+  const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/checkout`,{
+    productIds:Items.map((item)=>item.id)
+  }) 
+
+
+  window.location = res.data.url
+}
+ 
+
+useEffect(()=>{
+  if(searchParams.get('success')){
+    toast.success("payment Successfull")
+    removeAll()
+  }
+  
+  if(searchParams.get('canceld')){
+    toast.error("something went wrong ")
+  }
+},[searchParams,removeAll])
+
 
   return (
     <div className='  shadow-sm md:mt-0 mt-4 border-zinc-200 rounded-lg border w-full h-full py-4 px-4 '>
@@ -27,7 +55,7 @@ const TotalPrice = Items.reduce((total,item)=>{
 
             <span>{formatter.format(Number(TotalPrice))}</span>
         </div>
-        <Button className=' mt-8 w-full'>Checkout</Button>
+        <Button className=' mt-8 w-full' onClick={onCheckOut}>Checkout</Button>
       </div>
 
     </div>
