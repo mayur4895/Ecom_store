@@ -18,17 +18,10 @@ const TotalPrice = Items.reduce((total,item)=>{
 },0)
 
  
-const onCheckOut = async()=>{
-  const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/checkout`,{
-    productIds:Items.map((item)=>item.id)
-  }) 
-
-
-  window.location = res.data.url
-}
  
 
 useEffect(()=>{
+  
   if(searchParams.get('success')){
     toast.success("payment Successfull")
     removeAll()
@@ -40,6 +33,15 @@ useEffect(()=>{
 },[searchParams,removeAll])
 
 
+const onCheckOut = async()=>{
+  const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/checkout`,{
+    productIds:Items.map((item)=>item.id)
+  }) 
+
+
+  window.location = res.data.url
+}
+ 
   return (
     <div className='  shadow-sm md:mt-0 mt-4 border-zinc-200 rounded-lg border w-full h-full py-4 px-4 '>
       <div>
