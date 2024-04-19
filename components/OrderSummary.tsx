@@ -57,7 +57,7 @@ const onCheckOut = async()=>{
 
             <span>{formatter.format(Number(TotalPrice))}</span>
         </div>
-        <Button className=' mt-8 w-full' onClick={onCheckOut}>Checkout</Button>
+        <Button className=' mt-8 w-full' disabled={Items.length==0} onClick={onCheckOut}>Checkout</Button>
       </div>
 
     </div>
