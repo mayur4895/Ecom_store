@@ -28,7 +28,7 @@ const Billboard = ({data}:BillboardProps) => {
         className="rounded-xl object-cover  z-10"
       /> 
       
-    <h3 className='z-50  font-bold lg:text-5xl sm:text-3xl  text-zinc-900/75'>{data.label}</h3>
+    <h3 className='z-50  font-bold lg:text-5xl sm:text-3xl  break-words text-zinc-900/75'>{data.label}</h3>
        </div>
     </AspectRatio>
      
