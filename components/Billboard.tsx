@@ -18,17 +18,17 @@ const Billboard = ({data}:BillboardProps) => {
   }
 
   return (
-    <div className=' sm:p-6 lg:p-8 p-4 rounded-xl'>
-      <AspectRatio  className="bg-muted">
+    <div className=' sm:p-6 lg:p-8 p-4 rounded-xl md:h-[90vh] h-[70vh]'>
+      <AspectRatio  className="bg-muted md:h-[80vh] h-[60vh]">
        <div className=' flex items-center flex-col justify-center h-full'>
        <Image
         src={data.imageUrl}
         alt={"billboard"}
         fill
-        className="rounded-xl object-cover  z-10"
+        className="rounded-xl object-cover  object-center z-10"
       /> 
       
-    <h3 className='z-50  font-bold lg:text-5xl sm:text-3xl  break-words text-zinc-900/75'>{data.label}</h3>
+    <h3 className='z-50  font-bold lg:text-5xl text-2xl  break-words text-zinc-900/75'>{data.label}</h3>
        </div>
     </AspectRatio>
      
