@@ -54,8 +54,8 @@ const OnAddToCart:MouseEventHandler<HTMLButtonElement> =(event)=>{
 }
 
   return (
-    <Card className='group  w-[200px] '  onClick={handlClick}>
-    <div className="w-[200px] relative p-2 rounded-md">
+    <Card className='group  md:w-[200px] w-[180px] '  onClick={handlClick}>
+    <div className="md:w-[200px] w-[180px] relative p-2 rounded-md">
     <AspectRatio ratio={2/2}>
       <Image src={product?.images[0]?.url} alt="Image" fill className="rounded-md object-cover" />
     </AspectRatio> 

@@ -10,7 +10,7 @@ const ActionButton = () => {
   const router = useRouter();
   const cart = useCartStore();
   return (
-    <Button   onClick={()=>{router.push("/cart")}} size={"sm"} className='ml-auto   rounded-full'>
+    <Button   onClick={()=>{router.push("/cart")}} size={"sm"} className='ml-auto sm:mr-2   rounded-full'>
         <div className='flex items-end gap-x-2'>
         <ShoppingBagIcon  size={22}/>
         <span className='text-sm'>{cart.Items.length}</span>

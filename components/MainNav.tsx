@@ -25,7 +25,7 @@ const MainNav = ({data}:MainNavProps) => {
  
 
   return (
-    <div className='mx-6 gap-x-4 lg:space-x-6 items-center w-full flex'>
+    <div className='mx-6 gap-x-3 lg:space-x-6 scrollbar-hide   overflow-y-auto items-center w-full flex'>
        {
          
          routes.map((route)=>{
