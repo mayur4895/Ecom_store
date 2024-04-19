@@ -48,7 +48,7 @@ const onCheckOut = async()=>{
         <h1 className='font-semibold text-xl text-nowrap mb-4'>Order Summary</h1>
         <div className='flex flex-col  items-end gap-4'>{Items.map((item)=>{
             return(
-                <div className='flex w-full justify-between items-end'> <span>{item.name}  </span>  {formatter.format(Number(item.price))} <br /></div>
+                <div key={item.id} className='flex w-full justify-between items-end'> <span>{item.name}  </span>  {formatter.format(Number(item.price))} <br /></div>
                 
             )
         })}</div>
